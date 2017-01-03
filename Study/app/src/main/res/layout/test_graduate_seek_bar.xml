@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+    >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_blue_light"
+        >
+
+        <study.heaven7.com.android_study.view.GraduateView
+            android:id="@+id/seekbar_self"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            app:gv_GraduateCount="6"
+            app:gv_GrduateVerHeight="30"
+            app:gv_GrduateHorColor="@android:color/holo_red_light"
+            app:gv_GrduateVerColor="@android:color/white"
+            app:gv_StrokeHorWith="20"
+            app:gv_StrokeVerWith="20"
+            />
+       <SeekBar
+           android:layout_width="match_parent"
+           android:layout_height="wrap_content"
+           android:layout_gravity="center_vertical"
+           android:max="100"
+           android:progress="0"
+           android:progressDrawable="@android:color/transparent"
+           android:thumb="@drawable/shape_graduate_thumb"
+           />
+    </FrameLayout>
+
+
+
+</LinearLayout>

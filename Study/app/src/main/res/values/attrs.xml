@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="GraduateView">
+        <attr name="gv_StrokeVerWith" format="float|reference"/>
+        <attr name="gv_StrokeHorWith" format="float|reference"/>
+        <attr name="gv_GrduateVerColor" format="color|reference"/>
+        <attr name="gv_GrduateHorColor" format="color|reference"/>
+        <!-- gv_GraduateCount must > =2 -->
+        <attr name="gv_GraduateCount" format="integer|reference"/>
+        <attr name="gv_GrduateVerHeight" format="integer|reference"/>
+        <attr name="gv_DrawVerticalInBottom" format="integer|reference"/>
+    </declare-styleable>
+</resources>

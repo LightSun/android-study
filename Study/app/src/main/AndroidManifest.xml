@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="study.heaven7.com.android_study">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+
+    <!-- 貌似没用？ -->
+    <uses-permission-sdk-23 android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission-sdk-23 android:name="android.permission.SYSTEM_OVERLAY_WINDOW"/>
+
+    <application
+        android:name=".MyApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:hardwareAccelerated="true"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity android:name=".MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity android:name=".demo.FileDownloaderDemo"/>
+        <activity android:name=".demo.PdfReaderDemo"/>
+        <activity android:name=".demo.TestPinyinInSearchActivity"/>
+        <activity android:name=".demo.SourceTrackTestActivity"/>
+        <activity android:name=".demo.ShowTextActivity"/>
+        <activity android:name=".demo.DecodeBigImageTestActivity"/>
+        <activity android:name=".demo.ItemCountDownTest"/>
+
+        <activity android:name=".bigimage.ImageViewer"/>
+        <activity android:name=".demo.ViewPagerBigImageTestActivity" />
+        <activity android:name=".demo.DragFlowLayoutTest" />
+        <activity android:name=".demo.DragFlowLayoutTest2" />
+        <activity android:name=".demo.DragWindowTest" />
+        <activity android:name=".demo.TestProgressBar" />
+        <activity android:name=".demo.TestNestedScrollActivity" />
+        <activity android:name=".demo.TestGraduateActivity" />
+
+        <service android:name=".DragWindowService"/>
+
+    </application>
+
+</manifest>
