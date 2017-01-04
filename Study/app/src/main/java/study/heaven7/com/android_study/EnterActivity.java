@@ -2,6 +2,7 @@ package study.heaven7.com.android_study;
 
 import java.util.List;
 
+import study.heaven7.com.android_study.demo.TestGestureMosaicActivity;
 import study.heaven7.com.android_study.demo.api.XfermodesTest;
 
 /**
@@ -14,6 +15,7 @@ public class EnterActivity extends AbsMainActivity {
     protected void addDemos(List<ActivityInfo> list) {
         list.add(new ActivityInfo(MainActivity.class, " old demos (see it in MainActivity)")) ;
         list.add(new ActivityInfo(XfermodesTest.class, "Xfermodes Test")) ;
+        list.add(new ActivityInfo(TestGestureMosaicActivity.class, "MosaicView1 Test")) ;
     }
 
 }
