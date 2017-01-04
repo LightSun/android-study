@@ -22,13 +22,15 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name=".EnterActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".MainActivity"/>
 
         <activity android:name=".demo.FileDownloaderDemo"/>
         <activity android:name=".demo.PdfReaderDemo"/>
@@ -46,6 +48,7 @@
         <activity android:name=".demo.TestProgressBar" />
         <activity android:name=".demo.TestNestedScrollActivity" />
         <activity android:name=".demo.TestGraduateActivity" />
+        <activity android:name=".demo.api.XfermodesTest" />
 
         <service android:name=".DragWindowService"/>
 

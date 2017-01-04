@@ -111,7 +111,7 @@ public class GraduateView extends View {
         }
     }
 
-    public void setmGrduateVerticalHeight(int height) {
+    public void setGrduateVerticalHeight(int height) {
         if (this.mGrduateVerHeight != height) {
             this.mGrduateVerHeight = height;
             ViewCompat.postInvalidateOnAnimation(this);
@@ -119,7 +119,7 @@ public class GraduateView extends View {
     }
 
     @Override
-    protected synchronized void onDraw(Canvas canvas) {
+    protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         //绘制刻度背景
         //以padding draw 俩边外观刻度
