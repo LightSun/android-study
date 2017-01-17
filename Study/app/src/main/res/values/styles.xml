@@ -57,4 +57,11 @@
         <item name="android:padding">10dp</item>
     </style>
 
+    <style name="item_split_view">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">0.5dp</item>
+        <item name="android:background">#e1e4ec</item>
+    </style>
+
+
 </resources>

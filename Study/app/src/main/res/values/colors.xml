@@ -24,4 +24,6 @@
     <color name="grey_5">#FF828282</color>
     <color name="grey_6">#FF4D4D4D</color>
     <color name="grey_7">#804D4D4D</color>
+
+    <color name="bg_color_ffc233">#ffc233</color>
 </resources>
