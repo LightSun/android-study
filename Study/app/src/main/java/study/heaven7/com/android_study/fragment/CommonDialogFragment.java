@@ -9,6 +9,7 @@ import android.support.annotation.LayoutRes;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.v4.app.DialogFragment;
+import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -20,7 +21,6 @@ import android.view.Window;
 import android.view.WindowManager;
 
 import com.heaven7.core.util.Logger;
-import com.heaven7.core.util.ViewHelper;
 
 import study.heaven7.com.android_study.dialog.CommonDialog;
 
@@ -37,20 +37,21 @@ public class CommonDialogFragment extends DialogFragment {
     private static final DisplayMetrics DM = new DisplayMetrics();
 
     private boolean mSaved;
-    private ICallback mCallback;
+    private Callback mCallback;
     private int mLayoutId;
 
     public static Builder newBuilder() {
         return new Builder();
     }
 
-    public void setCallback(ICallback callback) {
+    public void setCallback(Callback callback) {
         this.mCallback = callback;
     }
 
     @Override
     public void onStart() {
         super.onStart();
+        //called every turn 'lock off' to 'lock on'
         Logger.i(TAG, "onStart", ""); // called before dialog.onAttachedToWindow.
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(DM);
         final Window window = getDialog().getWindow();
@@ -65,30 +66,42 @@ public class CommonDialogFragment extends DialogFragment {
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_Holo_Dialog_NoActionBar);
-        if (savedInstanceState != null) {
+        if (savedInstanceState != null){
             mLayoutId = savedInstanceState.getInt(KEY_LAYOUT_ID);
         }
+        mCallback.onRestoreInstanceState(savedInstanceState);
+    }
+
+    @Override
+    public void onActivityCreated(Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        Logger.i(TAG, "onActivityCreated", "");
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(mLayoutId, container, false);
-        mCallback.onBindData(view.getContext(), new ViewHelper(view), savedInstanceState, getArguments());
+        mCallback.onBindData(view.getContext(), view, getArguments(), new ActionProvider(){
+            @Override
+            public void dismissDialog() {
+                 dismiss();
+            }
+        });
         return view;
     }
-
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         mSaved = false;
     }
 
-    @Override
+    @Override //锁屏也会调用
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putInt(KEY_LAYOUT_ID, mLayoutId);
         mSaved = true;
+        mCallback.onSaveInstanceState(outState);
     }
 
     @Override
@@ -117,38 +130,55 @@ public class CommonDialogFragment extends DialogFragment {
     }
 
     /**
+     * the action provider help we handle the dialog
+     */
+    public static abstract class ActionProvider {
+
+        /**
+         * dismiss the dialog. if you want to dismiss , please call this.
+         */
+        public abstract void dismissDialog();
+
+    }
+
+    /**
      * the callback of CommonDialogFragment.
      */
-    public interface ICallback extends CommonDialog.Callback {
+    public abstract static class Callback extends CommonDialog.Callback {
+
+        public void onSaveInstanceState(Bundle outState) {
+
+        }
+        public void onRestoreInstanceState(Bundle savedInstanceState) {
+
+        }
 
         /**
          * set the dialog, called when create the dialog
          *
          * @param dialog the dialog, often is an instance of {@link CommonDialog}.
          */
-        void onSetDialog(Dialog dialog);
+        public abstract void onSetDialog(Dialog dialog);
 
         /**
          * called on start which give a last chance to set Window.
          *
          * @param window the window from dialog
-         * @param dm     the DisplayMetrics
+         * @param dm     the current DisplayMetrics
          */
-        void onSetWindow(Window window, DisplayMetrics dm);
+        public abstract void onSetWindow(Window window, DisplayMetrics dm);
 
         /**
          * bind the data for the view which is the content of fragment
-         *
-         * @param context            the context
-         * @param helper             the view helper.
-         * @param savedInstanceState the save instance state
+         *  @param context            the context
+         * @param view             the view of dialog.v
+         * @param provider           the action provider help we handle dialog
          * @param arguments          the arguments which is set by calling {@link android.support.v4.app.Fragment#setArguments(Bundle)}.
          */
-        void onBindData(Context context, ViewHelper helper, Bundle savedInstanceState, Bundle arguments);
-
+        public abstract void onBindData(Context context, View view, Bundle arguments, ActionProvider provider);
     }
 
-    public abstract static class SimpleCallback implements CommonDialogFragment.ICallback {
+    public abstract static class SimpleCallback extends Callback {
 
         @Override
         public void onSetWindow(Window window, DisplayMetrics dm) {
@@ -179,7 +209,7 @@ public class CommonDialogFragment extends DialogFragment {
     public static class Builder {
         private int layoutId;
         private boolean retain;
-        private ICallback callback;
+        private Callback callback;
         private Bundle args;
         private CommonDialogFragment mFragment;
 
@@ -193,7 +223,7 @@ public class CommonDialogFragment extends DialogFragment {
             return this;
         }
 
-        public Builder callback(ICallback callback) {
+        public Builder callback(Callback callback) {
             this.callback = callback;
             return this;
         }
@@ -227,6 +257,11 @@ public class CommonDialogFragment extends DialogFragment {
             mFragment.show(fm, tag);
             return mFragment;
         }
+
+        public CommonDialogFragment show(FragmentActivity activity, String tag) {
+            return show(activity.getSupportFragmentManager(), tag);
+        }
+
     }
 
 }

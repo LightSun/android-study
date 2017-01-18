@@ -1,6 +1,7 @@
 package study.heaven7.com.android_study.util;
 
 import android.os.SystemClock;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.heaven7.core.util.MainWorker;
@@ -70,6 +71,9 @@ public class RandomTextTask implements Runnable {
     protected void onSetText(TextView view, int animatedValue) {
         final int v1 = animatedValue + sRandom.nextInt(animatedValue);
         view.setText(String.valueOf(v1));
+        if(view instanceof EditText){
+            ((EditText) view).setSelection(view.length());
+        }
     }
 
     @Override

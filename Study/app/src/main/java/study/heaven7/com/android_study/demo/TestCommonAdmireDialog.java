@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
+import com.heaven7.core.util.Logger;
 import com.heaven7.core.util.ViewHelper;
 
 import butterknife.OnClick;
@@ -21,6 +22,7 @@ import study.heaven7.com.android_study.util.RandomTextTask;
 
 public class TestCommonAdmireDialog extends BaseActivity {
 
+    private static final String TAG = "TestCommonAdmireDialog";
     private CommonDialogFragment fragment;
     private final RandomTextTask mTask = new RandomTextTask();
 
@@ -69,11 +71,22 @@ public class TestCommonAdmireDialog extends BaseActivity {
     private class CallbackImpl extends CommonDialogFragment.SimpleCallback {
 
         @Override
-        public void onBindData(Context context, ViewHelper helper, Bundle savedInstanceState, Bundle arguments) {
-            helper.setOnClickListener(R.id.admire_cancel_img, new View.OnClickListener() {
+        public void onSaveInstanceState(Bundle outState) {
+            super.onSaveInstanceState(outState);
+            Logger.i(TAG, "onSaveInstanceState", "");
+        }
+        @Override
+        public void onRestoreInstanceState(Bundle savedInstanceState) {
+            super.onRestoreInstanceState(savedInstanceState);
+            Logger.i(TAG, "onRestoreInstanceState", "");
+        }
+
+        @Override
+        public void onBindData(Context context, View view, Bundle arguments, final CommonDialogFragment.ActionProvider provider) {
+            new ViewHelper(view).setOnClickListener(R.id.admire_cancel_img, new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    dismissFragment();
+                    provider.dismissDialog();
                 }
             });
         }

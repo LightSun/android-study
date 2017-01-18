@@ -64,20 +64,20 @@ public class CommonDialog extends Dialog {
     /**
      * the callback help we handle something.
      */
-    public interface Callback {
+    public abstract static class Callback {
         /**
          * called in {@link Dialog#onAttachedToWindow()} or the onAnimationEnd of enter animation.
          *
          * @param view the content view, not the view of android.R.id.content.
          */
-        void afterShow(View view);
+        public abstract  void afterShow(View view);
 
         /**
          * called before {@link Dialog#dismiss()} ()}.
          *
          * @param view the content view not the view of android.R.id.content.
          */
-        void beforeDismiss(View view);
+        public abstract  void beforeDismiss(View view);
     }
 
     public CommonDialog(Context context) {
