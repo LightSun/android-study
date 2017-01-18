@@ -4,9 +4,11 @@ import android.animation.Animator;
 import android.app.Dialog;
 import android.content.Context;
 import android.os.Build;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
 import android.support.annotation.LayoutRes;
+import android.support.annotation.NonNull;
 import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,6 +32,10 @@ public class CommonDialog extends Dialog {
 
     private static final String TAG = "CommonDialog";
     private static final boolean DEBUG = false;
+
+    private static final String KEY_POPUP_STYLE = "h7:CommonDialog:popup_style";
+    private static final String KEY_AUTO_DISMISS = "h7:CommonDialog:auto_dismiss";
+    private static final String KEY_ANIMATE_ROOT = "h7:CommonDialog:animate_root";
 
     private final Handler mHandler = new Handler(Looper.getMainLooper());
     private BaseAnimator mEnterAnim = new ZoomInBottomEnter();
@@ -153,6 +159,36 @@ public class CommonDialog extends Dialog {
         super.setContentView(view, params);
         findRealView();
     }
+
+    @NonNull
+    @Override
+    public Bundle onSaveInstanceState() {
+        final Bundle bundle = super.onSaveInstanceState();
+        if (mIsPopupStyle) {
+            bundle.putBoolean(KEY_POPUP_STYLE, true);
+        }
+        if (mAutoDismissDelay != 0) {
+            bundle.putLong(KEY_AUTO_DISMISS, mAutoDismissDelay);
+        }
+        if (mAnimateOnRootView) {
+            bundle.putBoolean(KEY_ANIMATE_ROOT, true);
+        }
+        return bundle;
+    }
+
+    @Override
+    public void onRestoreInstanceState(@NonNull Bundle savedInstanceState) {
+        if(savedInstanceState.getBoolean(KEY_POPUP_STYLE)){
+            mIsPopupStyle = true;
+        }
+        if(savedInstanceState.getBoolean(KEY_ANIMATE_ROOT)){
+            mAnimateOnRootView = true;
+        }
+        mAutoDismissDelay = savedInstanceState.getLong(KEY_AUTO_DISMISS , 0);
+        super.onRestoreInstanceState(savedInstanceState);
+    }
+
+    //==================================================================//
 
     private void findRealView() {
         if (getWindow() != null) {

@@ -48,7 +48,8 @@
         <activity android:name=".demo.TestProgressBar" />
         <activity android:name=".demo.TestNestedScrollActivity" />
         <activity android:name=".demo.TestGraduateActivity" />
-        <activity android:name=".demo.TestCommonAdmireDialog" />
+        <activity android:name=".demo.TestCommonAdmireDialog" android:configChanges="keyboardHidden|screenSize|orientation">
+        </activity>
 
         <activity android:name=".ApiDemoActivities" />
         <activity android:name=".demo.api.XfermodesTest" />

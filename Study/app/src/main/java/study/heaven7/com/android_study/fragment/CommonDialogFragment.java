@@ -32,15 +32,20 @@ import study.heaven7.com.android_study.dialog.CommonDialog;
 public class CommonDialogFragment extends DialogFragment {
 
     public static final String TAG = CommonDialogFragment.class.getSimpleName();
+    private static final String KEY_LAYOUT_ID = "h7:CommonDialogFragment:layout_id";
+
     private static final DisplayMetrics DM = new DisplayMetrics();
+
     private boolean mSaved;
     private ICallback mCallback;
     private int mLayoutId;
 
-    private ViewHelper mHelper;
-
-    public static Builder newBuilder(){
+    public static Builder newBuilder() {
         return new Builder();
+    }
+
+    public void setCallback(ICallback callback) {
+        this.mCallback = callback;
     }
 
     @Override
@@ -51,28 +56,24 @@ public class CommonDialogFragment extends DialogFragment {
         final Window window = getDialog().getWindow();
         if (window != null) {
             window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-            mCallback.onSetWindow(window);
-
-            final WindowManager.LayoutParams wlp = window.getAttributes();
-            mCallback.onSetWindowLayoutParams(wlp, DM);
-
-            window.setAttributes(wlp);
+            mCallback.onSetWindow(window, DM);
         }
-        mCallback.onSetDialog(getDialog()); //cancelable
     }
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setStyle(DialogFragment.STYLE_NO_TITLE, android.R.style.Theme_Holo_Dialog_NoActionBar);
+        if (savedInstanceState != null) {
+            mLayoutId = savedInstanceState.getInt(KEY_LAYOUT_ID);
+        }
     }
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(mLayoutId, container, false);
-        mHelper = new ViewHelper(view);
-        mCallback.onBindData(inflater.getContext(), mHelper, savedInstanceState, getArguments());
+        mCallback.onBindData(view.getContext(), new ViewHelper(view), savedInstanceState, getArguments());
         return view;
     }
 
@@ -85,6 +86,7 @@ public class CommonDialogFragment extends DialogFragment {
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
+        outState.putInt(KEY_LAYOUT_ID, mLayoutId);
         mSaved = true;
     }
 
@@ -101,46 +103,66 @@ public class CommonDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         //return super.onCreateDialog(savedInstanceState);
-        return new CommonDialog(getContext(), getTheme()).callback(mCallback);
+        final CommonDialog dialog = new CommonDialog(getContext(), getTheme()).callback(mCallback);
+        mCallback.setupDialog(dialog);
+        return dialog;
     }
 
     @Override
     public void onDestroyView() {
         Logger.i(TAG, "onDestroyView", ""); //called after dialog#dismiss.
-        mHelper = null;
         if (getDialog() != null && getRetainInstance()) {
             getDialog().setDismissMessage(null);
         }
         super.onDestroyView();
     }
 
+    /**
+     * the callback of CommonDialogFragment.
+     */
     public interface ICallback extends CommonDialog.Callback {
 
-        void onSetWindowLayoutParams(WindowManager.LayoutParams wlp, DisplayMetrics dm);
+        /**
+         * setup the dialog, called when create the dialog
+         *
+         * @param dialog the dialog, often is an instance of {@link CommonDialog}.
+         */
+        void setupDialog(Dialog dialog);
 
-        void onSetDialog(Dialog dialog);
+        /**
+         * called on start which give a last chance to set Window.
+         *
+         * @param window the window from dialog
+         * @param dm     the DisplayMetrics
+         */
+        void onSetWindow(Window window, DisplayMetrics dm);
 
-        void onSetWindow(Window window);
-
+        /**
+         * bind the data for the view which is the content of fragment
+         *
+         * @param context            the context
+         * @param helper             the view helper.
+         * @param savedInstanceState the save instance state
+         * @param arguments          the arguments which is set by calling {@link android.support.v4.app.Fragment#setArguments(Bundle)}.
+         */
         void onBindData(Context context, ViewHelper helper, Bundle savedInstanceState, Bundle arguments);
+
     }
 
     public abstract static class SimpleCallback implements CommonDialogFragment.ICallback {
+
         @Override
-        public void onSetWindowLayoutParams(WindowManager.LayoutParams wlp, DisplayMetrics dm) {
+        public void onSetWindow(Window window, DisplayMetrics dm) {
+            WindowManager.LayoutParams wlp = window.getAttributes();
             wlp.width = dm.widthPixels * 4 / 5;
             wlp.height = WindowManager.LayoutParams.WRAP_CONTENT;
             wlp.gravity = Gravity.CENTER;
         }
 
         @Override
-        public void onSetDialog(Dialog dialog) {
+        public void setupDialog(Dialog dialog) {
             dialog.setCancelable(true);
             dialog.setCanceledOnTouchOutside(true);
-        }
-
-        @Override
-        public void onSetWindow(Window window) {
         }
 
         @Override
@@ -153,6 +175,7 @@ public class CommonDialogFragment extends DialogFragment {
             //Logger.i(TAG, "afterShow", "" + view);
         }
     }
+
 
     public static class Builder {
         private int layoutId;
@@ -191,7 +214,7 @@ public class CommonDialogFragment extends DialogFragment {
             CommonDialogFragment fragment = new CommonDialogFragment();
             fragment.setRetainInstance(retain);
             fragment.mLayoutId = layoutId;
-            fragment.mCallback = callback;
+            fragment.setCallback(callback);
             fragment.setArguments(args);
             this.mFragment = fragment;
             return this;
@@ -206,4 +229,5 @@ public class CommonDialogFragment extends DialogFragment {
             return mFragment;
         }
     }
+
 }

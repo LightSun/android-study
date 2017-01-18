@@ -39,6 +39,12 @@ public class TestCommonAdmireDialog extends BaseActivity {
 
     }
 
+    @Override
+    protected void onDestroy() {
+        dismissFragment();
+        super.onDestroy();
+    }
+
     @OnClick(R.id.bt_back)
     public void onClickTrigger(View v) {
         fragment = CommonDialogFragment.newBuilder()
@@ -78,8 +84,8 @@ public class TestCommonAdmireDialog extends BaseActivity {
         }
 
         @Override
-        public void onSetDialog(Dialog dialog) {
-            super.onSetDialog(dialog);
+        public void setupDialog(Dialog dialog) {
+            super.setupDialog(dialog);
             dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                 @Override
                 public void onDismiss(DialogInterface dialog) {
