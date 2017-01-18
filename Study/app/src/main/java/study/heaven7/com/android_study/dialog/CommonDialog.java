@@ -42,12 +42,21 @@ public class CommonDialog extends Dialog {
     private BaseAnimator mExitAnim = new ZoomOutBottomExit();
     private WeakReference<View> mContentView;
 
+    /**
+     * is the popup style like {@link android.widget.PopupWindow}
+     */
     private boolean mIsPopupStyle;
     /**
      * is performing the animate
      */
     private boolean mPerformingAnim;
+    /**
+     * if >0 means support auto dismiss.
+     */
     private long mAutoDismissDelay;
+    /**
+     * true to animate the DecorView.
+     */
     private boolean mAnimateOnRootView;
 
     private Callback mCallback;

@@ -84,8 +84,8 @@ public class TestCommonAdmireDialog extends BaseActivity {
         }
 
         @Override
-        public void setupDialog(Dialog dialog) {
-            super.setupDialog(dialog);
+        public void onSetDialog(Dialog dialog) {
+            super.onSetDialog(dialog);
             dialog.setOnDismissListener(new DialogInterface.OnDismissListener() {
                 @Override
                 public void onDismiss(DialogInterface dialog) {

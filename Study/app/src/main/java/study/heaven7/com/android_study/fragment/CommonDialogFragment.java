@@ -58,6 +58,7 @@ public class CommonDialogFragment extends DialogFragment {
             window.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
             mCallback.onSetWindow(window, DM);
         }
+        mCallback.onSetDialog(getDialog());
     }
 
     @Override
@@ -103,9 +104,7 @@ public class CommonDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState) {
         //return super.onCreateDialog(savedInstanceState);
-        final CommonDialog dialog = new CommonDialog(getContext(), getTheme()).callback(mCallback);
-        mCallback.setupDialog(dialog);
-        return dialog;
+        return new CommonDialog(getContext(), getTheme()).callback(mCallback);
     }
 
     @Override
@@ -123,11 +122,11 @@ public class CommonDialogFragment extends DialogFragment {
     public interface ICallback extends CommonDialog.Callback {
 
         /**
-         * setup the dialog, called when create the dialog
+         * set the dialog, called when create the dialog
          *
          * @param dialog the dialog, often is an instance of {@link CommonDialog}.
          */
-        void setupDialog(Dialog dialog);
+        void onSetDialog(Dialog dialog);
 
         /**
          * called on start which give a last chance to set Window.
@@ -160,7 +159,7 @@ public class CommonDialogFragment extends DialogFragment {
         }
 
         @Override
-        public void setupDialog(Dialog dialog) {
+        public void onSetDialog(Dialog dialog) {
             dialog.setCancelable(true);
             dialog.setCanceledOnTouchOutside(true);
         }
