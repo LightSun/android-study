@@ -71,24 +71,15 @@ public class TestCommonAdmireDialog extends BaseActivity {
     private class CallbackImpl extends CommonDialogFragment.SimpleCallback {
 
         @Override
-        public void onSaveInstanceState(Bundle outState) {
-            super.onSaveInstanceState(outState);
-            Logger.i(TAG, "onSaveInstanceState", "");
-        }
-        @Override
-        public void onRestoreInstanceState(Bundle savedInstanceState) {
-            super.onRestoreInstanceState(savedInstanceState);
-            Logger.i(TAG, "onRestoreInstanceState", "");
-        }
-
-        @Override
         public void onBindData(Context context, View view, Bundle arguments, final CommonDialogFragment.ActionProvider provider) {
-            new ViewHelper(view).setOnClickListener(R.id.admire_cancel_img, new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    provider.dismissDialog();
-                }
-            });
+            Logger.i(TAG, "onBindData", "" + context.getClass().getName());
+            new ViewHelper(view)
+                    .setOnClickListener(R.id.admire_cancel_img, new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            provider.dismissDialog();
+                        }
+                    });
         }
 
         @Override
@@ -107,6 +98,18 @@ public class TestCommonAdmireDialog extends BaseActivity {
             super.afterShow(view);
             TextView et_price = (TextView) view.findViewById(R.id.admire_edit_price);
             startRandomTextTask(et_price);
+        }
+
+        @Override
+        public void onSaveInstanceState(Bundle outState) {
+            super.onSaveInstanceState(outState);
+            Logger.i(TAG, "onSaveInstanceState", "");
+        }
+
+        @Override
+        public void onRestoreInstanceState(Bundle savedInstanceState) {
+            super.onRestoreInstanceState(savedInstanceState);
+            Logger.i(TAG, "onRestoreInstanceState", "");
         }
     }
 

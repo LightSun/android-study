@@ -82,7 +82,8 @@ public class CommonDialogFragment extends DialogFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         final View view = inflater.inflate(mLayoutId, container, false);
-        mCallback.onBindData(view.getContext(), view, getArguments(), new ActionProvider(){
+        //view.getContext() //maybe ContextThemeWrapper
+        mCallback.onBindData(getContext(), view, getArguments(), new ActionProvider(){
             @Override
             public void dismissDialog() {
                  dismiss();
