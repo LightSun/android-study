@@ -33,7 +33,6 @@ public class TestCommonAdmireDialog extends BaseActivity {
 
     @Override
     protected void initData(Bundle savedInstanceState) {
-
     }
 
     @Override
@@ -50,7 +49,6 @@ public class TestCommonAdmireDialog extends BaseActivity {
                 .build()
                 .show(getSupportFragmentManager(), "dialog-fragment");
     }
-
 
     private void dismissFragment() {
         if (fragment != null && fragment.isVisible()) {

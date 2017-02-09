@@ -38,6 +38,8 @@ dependencies {
 
     //compile 'com.heaven7.volley:volley_with_extra:1.0.1'
     //compile 'com.heaven7.core.util:savestate:1.0.1'
+
+    compile project(':lib_realm')
 }
 
 //apply from: '../timerTracker.gradle'

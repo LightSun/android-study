@@ -1,1 +1,1 @@
-include ':app', ':image-touch-processor'
+include ':app', ':image-touch-processor', ':lib_realm'

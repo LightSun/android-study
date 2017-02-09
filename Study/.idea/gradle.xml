@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/image-touch-processor" />
+            <option value="$PROJECT_DIR$/lib_realm" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
