@@ -63,5 +63,13 @@
         <item name="android:background">#e1e4ec</item>
     </style>
 
+    <style name="tv_common">
+    <item name="android:layout_width">wrap_content</item>
+    <item name="android:layout_height">wrap_content</item>
+    <item name="android:text">string/test_user_name</item>
+    <item name="android:textColor">@android:color/holo_red_light</item>
+    <item name="android:singleLine">true</item>
+</style>
+
 
 </resources>

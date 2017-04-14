@@ -52,10 +52,13 @@
             android:configChanges="keyboardHidden|screenSize|orientation">
         </activity>
         <activity android:name=".demo.TestGestureMosaicActivity"/>
+        <activity android:name=".demo.ItemAnimatorTest" />
+        <activity android:name=".demo.TopLayoutRecyclerViewActivity" />
 
         <activity android:name=".ApiDemoActivities" />
         <activity android:name=".demo.api.XfermodesTest" />
         <activity android:name=".demo.api.SortedListActivity" />
+
 
         <service android:name=".DragWindowService"/>
 

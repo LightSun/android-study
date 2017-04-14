@@ -32,12 +32,14 @@ dependencies {
    // compile 'com.facebook.stetho:stetho:1.0.1' //chrome 浏览器调试app.需要翻墙. 原地址 http://stormzhang.com/android/2015/03/05/android-debug-use-chrome/
     //compile 'com.google.android.gms:play-services-appindexing:8.1.0'
 
-    compile 'com.heaven7.core.adapter:adapter:1.5.6'
+    compile 'com.heaven7.core.adapter:adapter:1.8.8'
     compile 'com.heaven7.core.util:util-v1:1.1.2'
    // compile 'com.heaven7.core.util:util-extra:1.0'
 
     //compile 'com.heaven7.volley:volley_with_extra:1.0.1'
     //compile 'com.heaven7.core.util:savestate:1.0.1'
+
+    compile 'jp.wasabeef:recyclerview-animators:2.2.6'
 
     compile project(':lib_realm')
 }
