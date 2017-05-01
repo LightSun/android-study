@@ -56,7 +56,12 @@ public class PdfReaderDemo extends BaseActivity {
                 .defaultPage(1)
                 .showMinimap(false)
                 .enableSwipe(true)
-                .onDraw(onDrawListener)
+                .onDraw(new OnDrawListener() {
+                    @Override
+                    public void onLayerDrawn(Canvas canvas, float pageWidth, float pageHeight, int displayedPage) {
+                        throw new NullPointerException();
+                    }
+                })
                 .onLoad(onLoadCompleteListener)
                 .onPageChange(new OnPageChangeListener() {
                     @Override

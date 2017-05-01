@@ -57,8 +57,8 @@
 
         <activity android:name=".ApiDemoActivities" />
         <activity android:name=".demo.api.XfermodesTest" />
-        <activity android:name=".demo.api.SortedListActivity" />
-
+        <activity android:name=".demo.api.SortedListActivity"/>
+        <activity android:name=".demo.api.BaseRenderScriptActivity" />
 
         <service android:name=".DragWindowService"/>
 
