@@ -23,7 +23,7 @@ public class DragFlowLayoutTest extends BaseActivity {
 
 
     @Override
-    protected int getlayoutId() {
+    protected int getLayoutId() {
         return R.layout.ac_drag_flow;
     }
 

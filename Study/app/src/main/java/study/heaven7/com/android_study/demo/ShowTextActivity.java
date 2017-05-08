@@ -23,7 +23,7 @@ public class ShowTextActivity extends BaseActivity {
     private int mLevel = -1;
 
     @Override
-    protected int getlayoutId() {
+    protected int getLayoutId() {
         return R.layout.ac_show_text;
     }
 

@@ -27,7 +27,7 @@ public class TopLayoutRecyclerViewActivity extends BaseActivity {
     RecyclerView mRv;
 
     @Override
-    protected int getlayoutId() {
+    protected int getLayoutId() {
         return R.layout.ac_item_count_down;
     }
 

@@ -25,7 +25,7 @@ public class TestProgressBar extends BaseActivity {
     RecyclerView mRv;
 
     @Override
-    protected int getlayoutId() {
+    protected int getLayoutId() {
         return R.layout.ac_pregress_bar_in_itemview;
     }
 

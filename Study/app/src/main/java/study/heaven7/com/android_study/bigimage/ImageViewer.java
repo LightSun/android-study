@@ -35,7 +35,7 @@ public class ImageViewer extends BaseActivity {
 
 
     @Override
-    protected int getlayoutId() {
+    protected int getLayoutId() {
         return R.layout.image_viewer;
     }
 

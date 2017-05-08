@@ -54,6 +54,7 @@
         <activity android:name=".demo.TestGestureMosaicActivity"/>
         <activity android:name=".demo.ItemAnimatorTest" />
         <activity android:name=".demo.TopLayoutRecyclerViewActivity" />
+        <activity android:name=".demo.SelfLayoutManagerTest" />
 
         <activity android:name=".ApiDemoActivities" />
         <activity android:name=".demo.api.XfermodesTest" />

@@ -126,7 +126,7 @@ public class TestGestureMosaicActivity extends BaseActivity {
     }
 
     @Override
-    protected int getlayoutId() {
+    protected int getLayoutId() {
         return R.layout.ac_gesture_mosaic;
     }
 

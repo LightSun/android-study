@@ -35,7 +35,7 @@ public class ItemCountDownTest extends BaseActivity {
     QuickRecycleViewAdapter<TestBean> mAdapter;
 
     @Override
-    protected int getlayoutId() {
+    protected int getLayoutId() {
         return R.layout.ac_item_count_down;
     }
 

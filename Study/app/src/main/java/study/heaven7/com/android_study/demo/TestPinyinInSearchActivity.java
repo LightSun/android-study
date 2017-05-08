@@ -36,7 +36,7 @@ public class TestPinyinInSearchActivity extends BaseActivity implements
     private QuickAdapter<User> mAdapter;
 
     @Override
-    protected int getlayoutId() {
+    protected int getLayoutId() {
         return R.layout.ac_pinyin_in_search;
     }
 

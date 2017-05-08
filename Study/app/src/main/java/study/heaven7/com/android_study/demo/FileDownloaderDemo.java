@@ -32,7 +32,7 @@ public class FileDownloaderDemo extends BaseActivity  {
     private int mDownloadId;
 
     @Override
-    protected int getlayoutId() {
+    protected int getLayoutId() {
         return R.layout.ac_file_download;
     }
 

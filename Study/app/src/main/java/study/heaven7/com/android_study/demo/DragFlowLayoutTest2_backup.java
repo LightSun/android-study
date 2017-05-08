@@ -22,7 +22,7 @@ public class DragFlowLayoutTest2_backup extends BaseActivity {
 
     private int mIndex;
     @Override
-    protected int getlayoutId() {
+    protected int getLayoutId() {
         return R.layout.ac_drag_flow_test2;
     }
 

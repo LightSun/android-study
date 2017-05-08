@@ -36,7 +36,7 @@ public class ViewPagerBigImageTestActivity extends BaseActivity {
     ViewPager mVp;
 
     @Override
-    protected int getlayoutId() {
+    protected int getLayoutId() {
         return R.layout.ac_view_pager_big_image;
     }
 

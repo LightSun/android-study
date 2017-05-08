@@ -37,7 +37,7 @@ public class DecodeBigImageTestActivity extends BaseActivity {
             +"/DCIM/mobile_out/temp.jpg";
 
     @Override
-    protected int getlayoutId() {
+    protected int getLayoutId() {
         return R.layout.ac_decode_big_image;
     }
 

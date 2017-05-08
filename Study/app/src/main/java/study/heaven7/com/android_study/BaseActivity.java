@@ -24,7 +24,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
     private IntentExecutor mIntentExecutor;
    // private SaveStateHelper mSaveStateHelper;
 
-    protected abstract int getlayoutId();
+    protected abstract int getLayoutId();
 
     protected void initView(){
 
@@ -42,7 +42,7 @@ public abstract class BaseActivity extends AppCompatActivity implements View.OnC
         mViewHelper = new ViewHelper(getWindow().getDecorView());
        // mSaveStateHelper = new SaveStateHelper(this);
 
-        setContentView(getlayoutId());
+        setContentView(getLayoutId());
         ButterKnife.inject(this);
 
         initView();

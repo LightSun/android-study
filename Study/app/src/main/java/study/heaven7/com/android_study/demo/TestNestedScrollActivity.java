@@ -12,7 +12,7 @@ import study.heaven7.com.android_study.R;
 public class TestNestedScrollActivity extends BaseActivity {
 
     @Override
-    protected int getlayoutId() {
+    protected int getLayoutId() {
         return R.layout.ac_test_nested_scroll;
     }
 

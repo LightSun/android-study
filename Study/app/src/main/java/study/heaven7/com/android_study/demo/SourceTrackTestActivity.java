@@ -38,7 +38,7 @@ public class SourceTrackTestActivity extends BaseActivity {
     private int mLastTabId = -1;
 
     @Override
-    protected int getlayoutId() {
+    protected int getLayoutId() {
         return R.layout.ac_src_track_main;
     }
 

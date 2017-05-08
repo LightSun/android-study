@@ -43,7 +43,7 @@ public class PdfReaderDemo extends BaseActivity {
     };
 
     @Override
-    protected int getlayoutId() {
+    protected int getLayoutId() {
         return R.layout.ac_pdf_reader_test;
     }
 

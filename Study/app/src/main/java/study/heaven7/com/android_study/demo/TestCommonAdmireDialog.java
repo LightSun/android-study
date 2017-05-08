@@ -27,7 +27,7 @@ public class TestCommonAdmireDialog extends BaseActivity {
     private final RandomTextTask mTask = new RandomTextTask();
 
     @Override
-    protected int getlayoutId() {
+    protected int getLayoutId() {
         return R.layout.ac_state_bar;
     }
 

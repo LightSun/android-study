@@ -26,7 +26,7 @@ public class DragWindowTest extends BaseActivity {
     private int mTouchSlop;
 
     @Override
-    protected int getlayoutId() {
+    protected int getLayoutId() {
         return R.layout.ac_drag_flow;
     }
 

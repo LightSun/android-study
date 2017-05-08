@@ -11,7 +11,7 @@ import study.heaven7.com.android_study.R;
  */
 public class TestGraduateActivity extends BaseActivity {
     @Override
-    protected int getlayoutId() {
+    protected int getLayoutId() {
         return R.layout.test_graduate_seek_bar;
     }
 
