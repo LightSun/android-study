@@ -64,6 +64,7 @@ dependencies {
     //compile 'com.heaven7.volley:volley_with_extra:1.0.1'
     compile 'jp.wasabeef:recyclerview-animators:2.2.6'
     compile project(':lib_realm')
+    compile files('libs/socketio.jar')
 }
 
 //apply from: '../timerTracker.gradle'
