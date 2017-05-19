@@ -1,0 +1,169 @@
+<resources>
+    <string name="app_name">DemoForAndroid</string>
+
+    <string name="txt_hint_input_word">请输入评测内容</string>
+    <string name="txt_hint_input_cloud_server">请输入服务器地址</string>
+
+    <string name="txt_start_test">开始评测(长按)</string>
+    <string name="txt_stop_test">停止评测</string>
+    <string name="txt_replay">回放</string>
+
+    <string name="txt_init_engine">初始化引擎</string>
+
+    <string name="txt_phonetic_symbol">音标评测</string>
+    <string name="txt_word">英文单词评测</string>
+    <string name="txt_sentence">英文句子评测</string>
+    <string name="txt_paragraph">段落评测</string>
+    <string name="txt_recognize">有限分支识别</string>
+    <string name="txt_essay_aloud">段落评测</string>
+    <string name="txt_topic_briefly">话题简述</string>
+    <string name="txt_sentence_translation">问答</string>
+    <string name="txt_setting">设置</string>
+    <string name="txt_server_address">服务器地址</string>
+
+    <!-- 短文朗读 -->
+    <string name="passage_demo1">I have a dream that one day every valley shall be exalted, every hill and mountain shall be made low, the rough places will be made plain, and the crooked places will be made straight, and the glory of the Lord shall be revealed, and all flesh shall see it together.</string>
+    <string name="passage_demo2">When we let freedom ring, when we let it ring from every village and every hamlet, from every state and every city, we will be able to speed up that day when all of God’s children, black men and white men, Jews and Gentiles, Protestants and Catholics, will be able to join hands and sing in the words of the old Negro spiritual, “Free at last! free at last! thank God almighty, we are free at last!”</string>
+    <!-- 话题简述 -->
+    <string name="topic_briefly_demo">1. 上星期六我们乘地铁去了迪斯尼乐园。\n2. 上午，我们在大门口拍照；下午，观看了一部4D电影，电影很精彩；晚上，我们去商场购物。\n3. 我们在乐园里待了大约8个小时，它可真是激动人心的一天。</string>
+    <string name="topic_briefly_answer">Last Saturday, we went to Disneyland by subway. In the morning, we took some photos at the gate of Disneyland. In the afternoon, we watched a 4-D film. It was very wonderful. In the evening, we did some shopping there. We stayed at the park for about eight hours. It was a really exciting day.</string>
+    <!-- 句子翻译 -->
+    <string name="sentence_translation_answer1">How often do you do sports?|How often do you exercise?|How often do you do exercise?|How often do you take exercise?|How often do you take some exercise?</string>
+    <string name="sentence_translation_answer2">Did you often play volleyball before?|Did you use to play volleyball?|Did you usually play volleyball before?|Did you play volleyball often before?|Did you play volleyball usually before?|Did you often play volleyball?|Did you usually play volleyball?</string>
+    <string name="sentence_translation_answer3">When will you go to the club tomorrow?|When are you going to the club tomorrow?|What time are you going to the club tomorrow?|What time will you go to the club tomorrow?|When will you head to the club tomorrow?|When are you heading to the club tomorrow?|What time will you head to the club tomorrow?|What time are you heading to the club tomorrow?</string>
+
+    <string-array name="array_phonetic_symbol">
+        <item>/b/</item>
+        <item>/p/</item>
+        <item>/t/</item>
+        <item>/d/</item>
+        <item>/k/</item>
+        <item>/s/</item>
+        <item>/h/</item>
+        <item>/g/</item>
+        <item>/l/</item>
+        <item>/n/</item>
+        <item>/r/</item>
+        <item>/m/</item>
+        <item>/f/</item>
+        <item>/v/</item>
+        <item>/z/</item>
+        <item>/w/</item>
+        <item>/j/</item>
+        <item>/ai/</item>
+        <item>/i/</item>
+        <item>/dʒ/</item>
+        <item>/ks/</item>
+        <item>/æ/</item>
+        <item>/aː/</item>
+        <item>/o/</item>
+        <item>/æm/</item>
+        <item>/æn/</item>
+        <item>/æd/</item>
+        <item>/æg/</item>
+        <item>/æp/</item>
+        <item>/æt/</item>
+        <item>/æb/</item>
+        <item>/e/</item>
+        <item>/iː/</item>
+        <item>/et/</item>
+        <item>/en/</item>
+        <item>/ed/</item>
+        <item>/eg/</item>
+        <item>/ɪ/</item>
+        <item>/ɪp/</item>
+        <item>/ɪb/</item>
+        <item>/ɪd/</item>
+        <item>/ɪn/</item>
+        <item>/ɪg/</item>
+        <item>/ɪt/</item>
+        <item>/ɪks/</item>
+        <item>/ɒ/</item>
+        <item>/əu/</item>
+        <item>/ʌ/</item>
+        <item>/ɒt/</item>
+        <item>/ɒp/</item>
+        <item>/ɒks/</item>
+        <item>/ɒb/</item>
+        <item>/ɒd/</item>
+        <item>/ɒg/</item>
+        <item>/ʌ/</item>
+        <item>/juː/</item>
+        <item>/ʌd/</item>
+        <item>/ʌg/</item>
+        <item>/ʌp/</item>
+        <item>/ʌt/</item>
+        <item>/ʌb/</item>
+        <item>/ʌm/</item>
+        <item>/ʌn/</item>
+        <item>/eɪ/</item>
+        <item>/ei/</item>
+        <item>/aɪ/</item>
+        <item>/əʊ/</item>
+        <item>/ɑː/</item>
+        <item>/ə/</item>
+        <item>/ɒː/</item>
+        <item>/ɔːr/</item>
+        <item>/ɜː/</item>
+        <item>/ʊ/</item>
+        <item>/aʊ/</item>
+        <item>/uː/</item>
+        <item>/Λ/</item>
+        <item>/ɒɪ/</item>
+        <item>/аː/</item>
+        <item>/ɪə/</item>
+        <item>/ɔː/</item>
+        <item>/ʊə/</item>
+        <item>/aʊə/</item>
+        <item>/əː/</item>
+        <item>/aɪə/</item>
+        <item>/eə/</item>
+        <item>/bl/</item>
+        <item>/pl/</item>
+        <item>/fl/</item>
+        <item>/kl/</item>
+        <item>/gl/</item>
+        <item>/sl/</item>
+        <item>/br/</item>
+        <item>/pr/</item>
+        <item>/fr/</item>
+        <item>/kr/</item>
+        <item>/gr/</item>
+        <item>/sm/</item>
+        <item>/sn/</item>
+        <item>/sw/</item>
+        <item>/tw/</item>
+        <item>/p/</item>
+        <item>/tʃ/</item>
+        <item>/ʃ/</item>
+        <item>/tr/</item>
+        <item>/dr/</item>
+        <item>/θ/</item>
+        <item>/ð/</item>
+        <item>/ʧ/</item>
+        <item>/gw/</item>
+        <item>/sg/</item>
+        <item>/sb/</item>
+        <item>/sd/</item>
+        <item>/sk/</item>
+        <item>/st/</item>
+        <item>/sdr/</item>
+        <item>/sbr/</item>
+        <item>/kw/</item>
+        <item>/sgw/</item>
+        <item>/sgr/</item>
+        <item>/sbl/</item>
+        <item>/ŋ/</item>
+        <item>/ʃən/</item>
+        <item>/tʃən/</item>
+        <item>/ʒən/</item>
+        <item>/tʃə/</item>
+        <item>/ʒə/</item>
+        <item>/igz/</item>
+        <item>/iks/</item>
+        <item>/eks/</item>
+        <item>/tən/</item>
+        <item>/ʃʊə/</item>
+    </string-array>
+
+</resources>
