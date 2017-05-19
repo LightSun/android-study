@@ -35,4 +35,5 @@ dependencies {
     compile 'com.android.support:appcompat-v7:25.1.0'
     testCompile 'junit:junit:4.12'
     compile 'org.apache.httpcomponents:httpcore:4.4.6'
+    compile 'com.heaven7.core.util:util-v1:1.1.2'
 }

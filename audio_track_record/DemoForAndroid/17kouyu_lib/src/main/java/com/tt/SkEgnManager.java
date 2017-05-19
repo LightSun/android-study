@@ -4,9 +4,11 @@ import android.content.Context;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
+
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -188,6 +190,7 @@ public class SkEgnManager {
 
         mHandler = handler;
         byte[] id = new byte[64];
+        //即使同一个句子。每次id也不一样。
         int rv = SkEgn.skegn_start(engine, params.toString(), id,
                 callback, mContext);
         if(rv!=0){

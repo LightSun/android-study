@@ -65,10 +65,29 @@ public class AIRecorder {
     }
 
     @Override
-    protected void finalize() {
+    protected void finalize() throws Throwable {
         recorder.release();
         player.release();
+        super.finalize();
         Log.d(TAG, "released");
+    }
+
+    private int doubleCalculateVolume(byte[] buffer){
+        double sumVolume = 0.0;
+        double avgVolume = 0.0;
+        double volume = 0.0;
+        for(int i = 0; i < buffer.length; i+=2){
+            int v1 = buffer[i] & 0xFF;
+            int v2 = buffer[i + 1] & 0xFF;
+            int temp = v1 + (v2 << 8);// 小端
+            if (temp >= 0x8000) {
+                temp = 0xffff - temp;
+            }
+            sumVolume += Math.abs(temp);
+        }
+        avgVolume = sumVolume / buffer.length / 2;
+        volume = Math.log10(1 + avgVolume) /** 10*/;
+        return (int) volume;
     }
 
     public void start(final String path, final Callback callback) {
@@ -131,7 +150,7 @@ public class AIRecorder {
         file.writeBytes("data"); // data id
         file.writeInt(0); // data chunk size *PLACEHOLDER*
 
-        Log.i(TAG, "wav path: " + path + ", file size before record = " + file.length());
+        Log.i(TAG, "wav path: " + path + ", file size before record = " + file.length());//44
         return file;
     }
 
@@ -173,6 +192,7 @@ public class AIRecorder {
                 while (discardBytes > 0) {
                     int requestBytes = buffer.length < discardBytes ? buffer.length : discardBytes;
                     int readBytes = recorder.read(buffer, 0, requestBytes);
+                    //音量有问题。Logger.i("RecordTask","doInBackground","volume : " + doubleCalculateVolume(buffer));
                     if (readBytes > 0) {
                         discardBytes -= readBytes;
                         Log.d(TAG, "discard: " + readBytes);
