@@ -16,7 +16,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.RandomAccessFile;
 
-
+//WAVE音频文件格式: http://www.2cto.com/os/201312/267541.html
 public class AIRecorder {
 
     private static String TAG = "AIRecorder";
