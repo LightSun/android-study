@@ -9,6 +9,10 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-feature android:name="android.hardware.camera" />
+    <uses-feature android:name="android.hardware.camera.autofocus" />
 
     <!-- 貌似没用？ -->
     <uses-permission-sdk-23 android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
@@ -55,6 +59,7 @@
         <activity android:name=".demo.ItemAnimatorTest" />
         <activity android:name=".demo.TopLayoutRecyclerViewActivity" />
         <activity android:name=".demo.SelfLayoutManagerTest" />
+        <activity android:name=".demo.TextureViewTest" />
 
         <activity android:name=".ApiDemoActivities" />
         <activity android:name=".demo.api.XfermodesTest" />
