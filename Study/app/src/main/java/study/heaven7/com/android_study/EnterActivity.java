@@ -5,6 +5,7 @@ import java.util.List;
 import study.heaven7.com.android_study.demo.ItemAnimatorTest;
 import study.heaven7.com.android_study.demo.TestCommonAdmireDialog;
 import study.heaven7.com.android_study.demo.TestGestureMosaicActivity;
+import study.heaven7.com.android_study.demo.TestSeekFuncActivity;
 import study.heaven7.com.android_study.demo.TextureViewTest;
 import study.heaven7.com.android_study.demo.TopLayoutRecyclerViewActivity;
 
@@ -23,6 +24,7 @@ public class EnterActivity extends AbsMainActivity {
         list.add(new ActivityInfo(ItemAnimatorTest.class, "ItemAnimator Test")) ;
         list.add(new ActivityInfo(TopLayoutRecyclerViewActivity.class, "top layout recyclerview")) ;
         list.add(new ActivityInfo(TextureViewTest.class, "test TextureView")) ;
+        list.add(new ActivityInfo(TestSeekFuncActivity.class, "test seek/shake")) ;
     }
 
 }
