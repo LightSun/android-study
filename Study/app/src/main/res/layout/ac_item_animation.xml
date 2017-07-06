@@ -13,12 +13,33 @@
         android:background="@drawable/shape_reveal"
         >
     </LinearLayout>
+    
+    <FrameLayout
+        android:id="@+id/vg_parent"
+        android:layout_width="160dp"
+        android:layout_height="120dp">
+
+        <study.heaven7.com.android_study.temp.AutoZoomInImageView
+            android:id="@+id/aziv"
+            android:layout_width="80dp"
+            android:layout_height="60dp"
+            android:src="@drawable/levelover_icon_fall"
+            />
+
+    </FrameLayout>
 
     <Button
         android:id="@+id/bt_test_reveal"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="test low 5.0 reveal"
+        />
+
+    <Button
+        android:id="@+id/bt_escale"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="test equal scale"
         />
 
 </LinearLayout>
