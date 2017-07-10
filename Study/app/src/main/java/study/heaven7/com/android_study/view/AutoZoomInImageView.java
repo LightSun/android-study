@@ -1,4 +1,4 @@
-package study.heaven7.com.android_study.temp;
+package study.heaven7.com.android_study.view;
 
 import android.animation.Animator;
 import android.animation.ValueAnimator;
@@ -10,7 +10,6 @@ import android.support.v7.widget.AppCompatImageView;
 import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 
 @SuppressLint("NewApi")
 public class AutoZoomInImageView extends AppCompatImageView{

@@ -19,7 +19,7 @@
         android:layout_width="160dp"
         android:layout_height="120dp">
 
-        <study.heaven7.com.android_study.temp.AutoZoomInImageView
+        <study.heaven7.com.android_study.view.AutoZoomInImageView
             android:id="@+id/aziv"
             android:layout_width="80dp"
             android:layout_height="60dp"

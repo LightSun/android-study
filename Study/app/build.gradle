@@ -66,8 +66,9 @@ dependencies {
     compile project(':lib_realm')
     compile files('libs/socketio.jar')
 
-   // compile 'com.heaven7.android.pullrefresh:android-pullrefreshview:1.0'
+    //compile 'com.heaven7.android.pullrefresh:android-pullrefreshview:1.0'
     //compile 'com.heaven7.android.scroll:android-nestedscroll:1.0'
+
 }
 
 //apply from: '../timerTracker.gradle'

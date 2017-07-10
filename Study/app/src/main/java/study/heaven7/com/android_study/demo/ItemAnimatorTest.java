@@ -11,8 +11,7 @@ import butterknife.InjectView;
 import butterknife.OnClick;
 import study.heaven7.com.android_study.BaseActivity;
 import study.heaven7.com.android_study.R;
-import study.heaven7.com.android_study.temp.AutoZoomInImageView;
-import study.heaven7.com.android_study.util.DimenUtil;
+import study.heaven7.com.android_study.view.AutoZoomInImageView;
 
 /**
  * https://github.com/wasabeef/recyclerview-animators
