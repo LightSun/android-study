@@ -34,5 +34,11 @@
     <string name="case_detail_admire_more_text">打赏过多会使作者骄傲</string>
     <string name="case_detail_anon_admire">匿名打赏</string>
 
-
+    <array name="categories">
+        <item>@array/no_action</item>
+        <item>@array/to_accept</item>
+        <item>@array/opened</item>
+        <item>@array/to_verify</item>
+        <item>@array/to_close</item>
+    </array>
 </resources>

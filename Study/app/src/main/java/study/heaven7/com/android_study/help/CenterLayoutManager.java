@@ -12,6 +12,7 @@ import java.util.Locale;
 
 /**
  * center layout to horiental LinearLayoutManager.
+ * but if the clicked item is the the final several items. it may not.
  */
 public class CenterLayoutManager extends LinearLayoutManager {
 

@@ -2,6 +2,7 @@ package study.heaven7.com.android_study;
 
 import java.util.List;
 
+import study.heaven7.com.android_study.demo.AnyObjectArrayFromResTest;
 import study.heaven7.com.android_study.demo.ItemAnimatorTest;
 import study.heaven7.com.android_study.demo.TestCommonAdmireDialog;
 import study.heaven7.com.android_study.demo.TestGestureMosaicActivity;
@@ -27,6 +28,7 @@ public class EnterActivity extends AbsMainActivity {
         list.add(new ActivityInfo(TextureViewTest.class, "test TextureView")) ;
         list.add(new ActivityInfo(TestSeekFuncActivity.class, "test seek/shake")) ;
         list.add(new ActivityInfo(TestGestureShadowActivity.class, "test gesture shadow")) ;
+        list.add(new ActivityInfo(AnyObjectArrayFromResTest.class, "test any object array from resource")) ;
     }
 
 }

@@ -62,6 +62,7 @@
         <activity android:name=".demo.TextureViewTest" />
         <activity android:name=".demo.TestSeekFuncActivity" />
         <activity android:name=".demo.TestGestureShadowActivity" />
+        <activity android:name=".demo.AnyObjectArrayFromResTest" />
 
         <activity android:name=".ApiDemoActivities" />
         <activity android:name=".demo.api.XfermodesTest" />

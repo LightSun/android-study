@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="no_action">
+        <item>0</item>
+        <item>@android:color/transparent</item>
+        <item>@string/statusRegistration</item>
+    </array>
+    <array name="to_accept">
+        <item>1</item>
+        <item>@color/light_gray</item>
+        <item>@string/acceptance</item>
+    </array>
+    <array name="opened">
+        <item>2</item>
+        <item>@android:color/holo_green_light</item>
+        <item>@string/open</item>
+    </array>
+    <array name="to_verify">
+        <item>3</item>
+        <item>@android:color/holo_blue_light</item>
+        <item>@string/verification</item>
+    </array>
+    <array name="to_close">
+        <item>4</item>
+        <item>@android:color/black</item>
+        <item>@string/closed</item>
+    </array>
+
+    <string name="statusRegistration">statusRegistration</string>
+    <string name="acceptance">acceptance</string>
+    <string name="open">open</string>
+    <string name="verification">verification</string>
+    <string name="closed">closed</string>
+
+    <color name="light_gray">@android:color/holo_red_light</color>
+</resources>
