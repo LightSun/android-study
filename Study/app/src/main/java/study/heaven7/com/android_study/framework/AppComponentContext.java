@@ -13,11 +13,11 @@ import com.heaven7.core.util.Toaster;
  */
 public interface AppComponentContext {
 
-    /**
+    /*
      * get the layout id.
      * @return the layout id
      */
-     int getLayoutId();
+  //   int getLayoutId(); //moved to UiManager
 
     /**
      * get the toaster.
@@ -25,16 +25,17 @@ public interface AppComponentContext {
      */
     IToast getToaster();
 
+    UiManager getUiManager();
 
-    //void preproccess(Context context, @Nullable Bundle savedInstanceState);
+    Initializer getInitializer();
+    //net. db. anim . logic ?
 
-
-    /**
+    /*
      * on initialize
      * @param context the context
      * @param savedInstanceState the bundle of save instance
      */
-    void onInitialize(Context context, @Nullable Bundle savedInstanceState);
+   // void onInitialize(Context context, @Nullable Bundle savedInstanceState);
 
 
 

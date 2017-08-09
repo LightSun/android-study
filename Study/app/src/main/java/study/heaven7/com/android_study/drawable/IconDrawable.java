@@ -91,4 +91,9 @@ public class IconDrawable extends Drawable {
         //give the desired opacity of the shape
         return PixelFormat.TRANSLUCENT;
     }
+
+    @Override
+    public int getIntrinsicWidth() {
+        return super.getIntrinsicWidth();
+    }
 }
