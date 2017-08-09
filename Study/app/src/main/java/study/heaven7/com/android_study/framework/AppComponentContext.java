@@ -28,7 +28,7 @@ public interface AppComponentContext {
     UiManager getUiManager();
 
     Initializer getInitializer();
-    //net. db. anim . logic ?
+    //net. db. anim . logic ,data?
 
     /*
      * on initialize

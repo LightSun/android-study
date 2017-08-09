@@ -8,7 +8,14 @@ import android.support.annotation.Nullable;
  * Created by heaven7 on 2017/8/9 0009.
  */
 
-public interface Initializer {
+public abstract class Initializer<U extends UiManager>{
 
-    void onInitialize(Context context, @Nullable Bundle savedInstanceState);
+    U mUi;
+    IToast mToast;
+    NetRequest request;
+
+    public void onInitialize(Context context, @Nullable Bundle savedInstanceState){
+
+    }
+
 }

@@ -14,16 +14,16 @@ public abstract class UiManager {
    /* @BindView(R.id.vg_top)
     ViewGroup mVg_top;*/
 
-    private final Context mContext;
+    private Context mContext;
 
-    public UiManager(View itemView){
-        this.mContext = itemView.getContext();
-        ButterKnife.inject(this, itemView);
+    public void attach(View rootView){
+        this.mContext = rootView.getContext();
+        ButterKnife.inject(this, rootView); //ButterKnife.bind
     }
 
     public Context getContext(){
         return mContext;
     }
 
-    public abstract  int getLayoutId();
+    public abstract int getLayoutId();
 }
