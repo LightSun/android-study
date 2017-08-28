@@ -1,0 +1,106 @@
+<html>
+<head>
+    <title>测试hybrid</title>
+</head>
+<body>
+<br><br>
+<input type="button" value="back" onClick="executeUrl('class100://back')"/><br><br>
+<input type="button" value="show loading" onClick="executeUrl('class100://show_loading')"/><br><br>
+<input type="button" value="hide_loading" onClick="executeUrl('class100://hide_loading')"/><br><br>
+<input type="button" value="forward" onClick="executeUrl('class100://forward?param=http://www.baidu.com')"/><br><br>
+<input type="button" value="callback" onClick="executeUrl('class100://callback?param=test_param&callback=test_callback')"/><br><br>
+
+<!-- <div id='b'><a onclick="window.android.clickOnAndroid(2)">b.c</a></div> -->
+
+<script type="text/javascript">
+
+
+Hybrid = new Object();
+Hybrid.callback = function (jsonData) {
+      alert(jsonData.toString());
+}
+
+        function executeUrl(url){
+             window.open(url, '_self');
+        }
+        function loadjscssfile(filename,filetype){
+
+            if(filetype == "js"){
+                var fileref = document.createElement('script');
+                fileref.setAttribute("type","text/javascript");
+                fileref.setAttribute("src",filename);
+            }else if(filetype == "css"){
+
+                var fileref = document.createElement('link');
+                fileref.setAttribute("rel","stylesheet");
+                fileref.setAttribute("type","text/css");
+                fileref.setAttribute("href",filename);
+            }
+           // 绑定到head
+           if(typeof fileref != "undefined"){
+                document.getElementsByTagName("head")[0].appendChild(fileref);
+            }
+        }
+
+window.Hybrid = window.Hybrid || {};
+var bridgePostMsg = function (url) {
+    if ($.os.ios) {
+        window.location = url;
+    } else {
+        var ifr = $('<iframe style="display: none;" src="' + url + '"/>');
+        $('body').append(ifr);
+        setTimeout(function () {
+            ifr.remove();
+        }, 1000)
+    }
+};
+var _getHybridUrl = function (params) {
+    var k, paramStr = '', url = 'scheme://';
+    url += params.tagname + '?t=' + new Date().getTime(); //时间戳，防止url不起效
+    if (params.callback) {
+        url += '&callback=' + params.callback;
+        delete params.callback;
+    }
+    if (params.param) {
+        paramStr = typeof params.param == 'object' ? JSON.stringify(params.param) : params.param;
+        url += '&param=' + encodeURIComponent(paramStr);
+    }
+    return url;
+};
+var requestHybrid = function (params) {
+    //生成唯一执行函数，执行后销毁
+    var tt = (new Date().getTime());
+    var t = 'hybrid_' + tt;
+    var tmpFn;
+
+    //处理有回调的情况
+    if (params.callback) {
+        tmpFn = params.callback;
+        params.callback = t;
+        window.Hybrid[t] = function (data) {
+            tmpFn(data);
+            delete window.Hybrid[t];
+        }
+    }
+    bridgePostMsg(_getHybridUrl(params));
+};
+//获取版本信息，约定APP的navigator.userAgent版本包含版本信息：scheme/xx.xx.xx
+var getHybridInfo = function () {
+    var platform_version = {};
+    var na = navigator.userAgent;
+    var info = na.match(/scheme\/\d\.\d\.\d/);
+
+    if (info && info[0]) {
+        info = info[0].split('/');
+        if (info && info.length == 2) {
+            platform_version.platform = info[0];
+            platform_version.version = info[1];
+        }
+    }
+    return platform_version;
+};
+
+
+</script>
+</body>
+</html>

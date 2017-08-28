@@ -1,0 +1,40 @@
+<html>
+<body>
+<br><br><br>
+<input type="button" value="开始评测" onClick="startEveluate()"/><br><br><br>
+<input type="button" value="normal停止评测" onClick="stopEvaluate()"/><br>
+
+<!-- <div id='b'><a onclick="window.android.clickOnAndroid(2)">b.c</a></div> -->
+
+<script type="text/javascript">
+            function startEveluate() {
+                var msg = 'startEveluate';
+                javascript:android.startEveluate(msg, '1', '2' ,'3','1');
+            }
+            function stopEvaluate() {
+                javascript:android.stopEvaluate();
+            }
+
+            function onResult(code, result){
+                var msg = 'code = ' + code + ',result = ' + result;
+                alert(msg);
+            }
+            function onVolumeChanged(volume){
+                var msg = 'volume = ' + volume;
+                alert(msg);
+            }
+            function onAudioSaved(file){
+                alert(file);
+            }
+
+</script>
+    <!--
+     in android:
+      mWebView.addJavascriptInterface(new JsInterflow(this, mWeb), "android");
+            if(TextUtils.isEmpty(url)){
+                url = "file:///android_asset/html/voice_evaluate.html";
+            }
+        mWeb.loadUrl(url);
+    -->
+</body>
+</html>
