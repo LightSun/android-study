@@ -64,6 +64,7 @@
         <activity android:name=".demo.TestGestureShadowActivity" />
         <activity android:name=".demo.AnyObjectArrayFromResTest" />
         <activity android:name=".demo.SelfDrawableTest" />
+        <activity android:name=".demo.StickyHeaderListViewDemo" />
 
         <activity android:name=".ApiDemoActivities" />
         <activity android:name=".demo.api.XfermodesTest" />

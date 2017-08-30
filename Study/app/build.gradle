@@ -69,6 +69,8 @@ dependencies {
     //compile 'com.heaven7.android.pullrefresh:android-pullrefreshview:1.0'
     //compile 'com.heaven7.android.scroll:android-nestedscroll:1.0'
 
+    compile 'com.github.nileshpambhar:HeaderListView:1.0.3'
+
 }
 
 //apply from: '../timerTracker.gradle'

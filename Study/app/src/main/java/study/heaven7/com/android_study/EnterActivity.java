@@ -5,6 +5,7 @@ import java.util.List;
 import study.heaven7.com.android_study.demo.AnyObjectArrayFromResTest;
 import study.heaven7.com.android_study.demo.ItemAnimatorTest;
 import study.heaven7.com.android_study.demo.SelfDrawableTest;
+import study.heaven7.com.android_study.demo.StickyHeaderListViewDemo;
 import study.heaven7.com.android_study.demo.TestCommonAdmireDialog;
 import study.heaven7.com.android_study.demo.TestGestureMosaicActivity;
 import study.heaven7.com.android_study.demo.TestGestureShadowActivity;
@@ -31,6 +32,7 @@ public class EnterActivity extends AbsMainActivity {
         list.add(new ActivityInfo(TestGestureShadowActivity.class, "test gesture shadow")) ;
         list.add(new ActivityInfo(AnyObjectArrayFromResTest.class, "test any object array from resource")) ;
         list.add(new ActivityInfo(SelfDrawableTest.class, "test self-drawable")) ;
+        list.add(new ActivityInfo(StickyHeaderListViewDemo.class, "StickyHeaderListViewDemo")) ;
     }
 
 }
